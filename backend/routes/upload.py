@@ -1,5 +1,6 @@
 from pathlib import Path
 import shutil
+from backend.services.dataset_registry import register_dataset
 
 from fastapi import APIRouter, UploadFile, File
 
@@ -30,6 +31,14 @@ async def upload_file(
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
+    # Register the uploaded dataset
+    register_dataset(filename=file.filename, file_size=file.size)
+    file_size = file_path.stat().st_size
+
+    register_dataset(
+    filename=file.filename,
+    file_size=file_size
+)
     return FileUploadResponse(
         filename=file.filename,
         message="File uploaded successfully"
