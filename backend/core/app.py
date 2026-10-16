@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from backend.routes.health import router as health_router
 from backend.routes.upload import router as upload_router
 from backend.routes.validation import router as validation_router
+from backend.routes.insights import router as insights_router
 
 app = FastAPI(
     title="FuelIQ AI",
@@ -13,6 +14,7 @@ app = FastAPI(
 app.include_router(health_router)
 app.include_router(upload_router)
 app.include_router(validation_router)
+app.include_router(insights_router)
 
 
 @app.get("/")
