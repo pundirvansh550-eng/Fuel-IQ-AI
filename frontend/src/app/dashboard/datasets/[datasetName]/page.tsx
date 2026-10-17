@@ -60,9 +60,7 @@ export default function DatasetDetailsPage({
         {datasetName}
       </p>
 
-      {/* KPI Cards */}
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
           <h3 className="text-zinc-400">
             Health Score
@@ -92,12 +90,9 @@ export default function DatasetDetailsPage({
             {data.risk.risk_level}
           </p>
         </div>
-
       </div>
 
-      {/* Actions */}
       <div className="mt-8">
-
         <h2 className="mb-4 text-2xl font-bold">
           Actions
         </h2>
@@ -106,7 +101,7 @@ export default function DatasetDetailsPage({
 
           <Link
             href={`/dashboard/datasets/${datasetName}/preview`}
-            className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6"
+            className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-cyan-500"
           >
             <h3 className="text-lg font-semibold">
               View Dataset
@@ -117,7 +112,10 @@ export default function DatasetDetailsPage({
             </p>
           </Link>
 
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+          <Link
+            href={`/dashboard/datasets/${datasetName}/analytics`}
+            className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-cyan-500"
+          >
             <h3 className="text-lg font-semibold">
               Analytics
             </h3>
@@ -125,9 +123,12 @@ export default function DatasetDetailsPage({
             <p className="mt-2 text-zinc-400">
               Advanced insights and trends.
             </p>
-          </div>
+          </Link>
 
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+          <Link
+            href={`/dashboard/datasets/${datasetName}/recommendations`}
+            className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-cyan-500"
+          >
             <h3 className="text-lg font-semibold">
               Recommendations
             </h3>
@@ -135,9 +136,12 @@ export default function DatasetDetailsPage({
             <p className="mt-2 text-zinc-400">
               AI-powered suggestions.
             </p>
-          </div>
+          </Link>
 
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+          <Link
+            href={`/dashboard/datasets/${datasetName}/schema`}
+            className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-cyan-500"
+          >
             <h3 className="text-lg font-semibold">
               Schema
             </h3>
@@ -145,11 +149,10 @@ export default function DatasetDetailsPage({
             <p className="mt-2 text-zinc-400">
               Dataset structure and fields.
             </p>
-          </div>
+          </Link>
 
         </div>
-
       </div>
     </div>
-  );                
+  );
 }

@@ -16,6 +16,9 @@ from backend.routes.intelligence import router as intelligence_router
 from backend.routes.dataset_preview import (
     router as dataset_preview_router
 )
+from backend.routes.export import (
+    router as export_router
+)
 
 app = FastAPI(
     title="FuelIQ AI",
@@ -23,7 +26,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS Configuration
+# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -35,7 +38,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routes
+# Route Registration
 app.include_router(health_router)
 app.include_router(upload_router)
 app.include_router(validation_router)
@@ -49,6 +52,7 @@ app.include_router(risk_router)
 app.include_router(dashboard_router)
 app.include_router(intelligence_router)
 app.include_router(dataset_preview_router)
+app.include_router(export_router)
 
 
 @app.get("/")
