@@ -1,98 +1,144 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import api from "@/lib/api";
-
 export default function DashboardPage() {
-  const [summary, setSummary] = useState<any>(null);
-
-  useEffect(() => {
-    const loadDashboard = async () => {
-      try {
-        const response = await api.get(
-          "/dashboard/FuelConsumption.csv"
-        );
-
-        setSummary(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    loadDashboard();
-  }, []);
-
-  if (!summary) {
-    return <div>Loading dashboard...</div>;
-  }
-
   return (
     <div>
-      <h1 className="text-4xl font-bold">
-        FuelIQ Command Center
-      </h1>
 
-      <p className="mt-2 text-zinc-400">
-        Fleet Sustainability Intelligence Overview
-      </p>
+      {/* Header */}
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
+      <div className="mb-10">
+
+        <h1 className="text-5xl font-bold">
+          FuelIQ Command Center
+        </h1>
+
+        <p className="mt-3 text-zinc-400">
+          Fleet Intelligence Operating System
+        </p>
+
+      </div>
+
+      {/* Executive KPIs */}
+
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
 
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-          <h3 className="text-zinc-400">
-            Health Score
-          </h3>
+          <div className="text-zinc-400">
+            Fleet Health
+          </div>
 
-          <p className="mt-4 text-4xl font-bold text-cyan-400">
-            {summary.dataset_health_score}
-          </p>
+          <div className="mt-4 text-4xl font-bold text-cyan-400">
+            98
+          </div>
         </div>
 
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-          <h3 className="text-zinc-400">
+          <div className="text-zinc-400">
             Sustainability
-          </h3>
+          </div>
 
-          <p className="mt-4 text-4xl font-bold text-green-400">
-            {summary.sustainability_score}
-          </p>
+          <div className="mt-4 text-4xl font-bold text-green-400">
+            88
+          </div>
         </div>
 
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-          <h3 className="text-zinc-400">
+          <div className="text-zinc-400">
             Risk Level
-          </h3>
+          </div>
 
-          <p className="mt-4 text-2xl font-bold text-orange-400">
-            {summary.risk_level}
-          </p>
+          <div className="mt-4 text-3xl font-bold text-orange-400">
+            Medium
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+          <div className="text-zinc-400">
+            Predicted Events
+          </div>
+
+          <div className="mt-4 text-4xl font-bold text-red-400">
+            0
+          </div>
         </div>
 
       </div>
 
-      <div className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+      {/* Main Grid */}
 
-        <h2 className="mb-4 text-xl font-semibold">
-          AI Recommendations
+      <div className="mt-10 grid gap-8 xl:grid-cols-2">
+
+        {/* Critical Alerts */}
+
+        <div className="rounded-2xl border border-red-900 bg-zinc-900 p-6">
+
+          <h2 className="mb-6 text-2xl font-bold text-red-400">
+            Critical Alerts
+          </h2>
+
+          <div className="space-y-3">
+
+            <div className="rounded-lg bg-zinc-800 p-4">
+              Duplicate records detected in fleet dataset.
+            </div>
+
+            <div className="rounded-lg bg-zinc-800 p-4">
+              Sustainability score below ideal target.
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* AI Recommendations */}
+
+        <div className="rounded-2xl border border-cyan-900 bg-zinc-900 p-6">
+
+          <h2 className="mb-6 text-2xl font-bold text-cyan-400">
+            AI Recommended Actions
+          </h2>
+
+          <div className="space-y-3">
+
+            <div className="rounded-lg bg-zinc-800 p-4">
+              Review high emission vehicle segments.
+            </div>
+
+            <div className="rounded-lg bg-zinc-800 p-4">
+              Run fleet sustainability assessment.
+            </div>
+
+            <div className="rounded-lg bg-zinc-800 p-4">
+              Optimize fuel consumption patterns.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Intelligence Feed */}
+
+      <div className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+
+        <h2 className="mb-6 text-2xl font-bold">
+          Intelligence Feed
         </h2>
 
-        <ul className="space-y-2">
+        <div className="space-y-3">
 
-          {summary.recommendations.map(
-            (
-              recommendation: string,
-              index: number
-            ) => (
-              <li
-                key={index}
-                className="text-zinc-300"
-              >
-                • {recommendation}
-              </li>
-            )
-          )}
+          <div className="rounded-lg bg-zinc-800 p-4">
+            CHEVROLET is the dominant manufacturer.
+          </div>
 
-        </ul>
+          <div className="rounded-lg bg-zinc-800 p-4">
+            COMPACT is the primary fleet category.
+          </div>
+
+          <div className="rounded-lg bg-zinc-800 p-4">
+            Fleet data quality remains excellent.
+          </div>
+
+        </div>
 
       </div>
 
