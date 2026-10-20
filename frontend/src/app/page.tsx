@@ -1,117 +1,142 @@
-import Link from "next/link";
+import HeroSection from "@/components/marketing/HeroSection";
+import IndustryChallengesSection from "@/components/marketing/IndustryChallengesSection";
+import WhyFuelIQSection from "@/components/marketing/WhyFuelIQSection";
+import HowItWorksSection from "@/components/marketing/HowItWorksSection";
+import BeyondMonitoringSection from "@/components/marketing/BeyondMonitoringSection";
+import PlatformOverviewSection from "@/components/marketing/PlatformOverviewSection";
+import CallToActionSection from "@/components/marketing/CallToActionSection";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      <nav className="border-b border-zinc-200">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-6">
-          <div className="text-3xl font-bold">
-            Fuel<span className="text-cyan-600">IQ</span>
+    <main className="min-h-screen bg-white">
+
+      <HeroSection />
+
+      <IndustryChallengesSection />
+
+      <WhyFuelIQSection />
+
+      <HowItWorksSection />
+
+      <BeyondMonitoringSection />
+
+      <PlatformOverviewSection />
+
+      <CallToActionSection />
+
+      {/* Footer */}
+
+      <footer className="bg-slate-950 text-white">
+
+        <div className="mx-auto max-w-7xl px-8 py-20">
+
+          <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-5">
+
+            {/* Brand */}
+
+            <div>
+
+              <h2 className="text-3xl font-bold">
+                FuelIQ
+              </h2>
+
+              <p className="mt-4 text-slate-400">
+                Fleet Intelligence Operating System
+              </p>
+
+            </div>
+
+            {/* Platform */}
+
+            <div>
+
+              <h3 className="mb-4 font-semibold">
+                Platform
+              </h3>
+
+              <div className="space-y-3 text-slate-400">
+
+                <div>Command Center</div>
+                <div>Fleet Intelligence</div>
+                <div>Emission Intelligence</div>
+                <div>Sustainability Intelligence</div>
+                <div>AI Copilot</div>
+
+              </div>
+
+            </div>
+
+            {/* Solutions */}
+
+            <div>
+
+              <h3 className="mb-4 font-semibold">
+                Solutions
+              </h3>
+
+              <div className="space-y-3 text-slate-400">
+
+                <div>Fleet Optimization</div>
+                <div>Emission Forecasting</div>
+                <div>Sustainability Management</div>
+                <div>Compliance Intelligence</div>
+
+              </div>
+
+            </div>
+
+            {/* Resources */}
+
+            <div>
+
+              <h3 className="mb-4 font-semibold">
+                Resources
+              </h3>
+
+              <div className="space-y-3 text-slate-400">
+
+                <div>Documentation</div>
+                <div>Blog</div>
+                <div>Release Notes</div>
+                <div>Product Roadmap</div>
+
+              </div>
+
+            </div>
+
+            {/* Contact */}
+
+            <div>
+
+              <h3 className="mb-4 font-semibold">
+                Contact
+              </h3>
+
+              <div className="space-y-3 text-slate-400">
+
+                <div>Email: Coming Soon</div>
+
+                <div>Phone: Coming Soon</div>
+
+                <div>Location: Coming Soon</div>
+
+              </div>
+
+            </div>
+
           </div>
 
-          <div className="flex items-center gap-8">
-            <Link href="/platform">
-              Platform
-            </Link>
+          <div className="mt-16 border-t border-slate-800 pt-8 text-sm text-slate-500">
 
-            <Link href="/solutions">
-              Solutions
-            </Link>
+            © 2026 FuelIQ AI.
+            Fleet Intelligence Operating System.
 
-            <Link href="/command-center">
-              Command Center
-            </Link>
           </div>
+
         </div>
-      </nav>
 
-      <section className="mx-auto max-w-7xl px-8 py-28">
-        <div className="max-w-4xl">
-          <p className="mb-6 font-semibold text-cyan-600">
-            AI Fleet Intelligence Operating System
-          </p>
+      </footer>
 
-          <h1 className="text-7xl font-bold leading-tight">
-            Understand.
-            <br />
-            Predict.
-            <br />
-            Decide.
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-xl text-zinc-600">
-            FuelIQ combines fleet intelligence,
-            sustainability intelligence,
-            compliance intelligence,
-            forecasting and AI-driven decision support
-            into one platform.
-          </p>
-
-          <div className="mt-10 flex gap-4">
-            <Link
-              href="/command-center"
-              className="rounded-xl bg-cyan-600 px-6 py-3 text-white"
-            >
-              Open Command Center
-            </Link>
-
-            <Link
-              href="/platform"
-              className="rounded-xl border border-zinc-300 px-6 py-3"
-            >
-              Explore Platform
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-8 pb-24">
-        <h2 className="mb-10 text-4xl font-bold">
-          Why FuelIQ
-        </h2>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-2xl border border-zinc-200 p-6">
-            <h3 className="text-xl font-bold">
-              Fleet Intelligence
-            </h3>
-
-            <p className="mt-3 text-zinc-600">
-              Understand fleet performance and operational efficiency.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-zinc-200 p-6">
-            <h3 className="text-xl font-bold">
-              Emission Intelligence
-            </h3>
-
-            <p className="mt-3 text-zinc-600">
-              Monitor emissions, identify hotspots and forecast impact.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-zinc-200 p-6">
-            <h3 className="text-xl font-bold">
-              Sustainability Intelligence
-            </h3>
-
-            <p className="mt-3 text-zinc-600">
-              Track sustainability performance and readiness.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-zinc-200 p-6">
-            <h3 className="text-xl font-bold">
-              Decision Intelligence
-            </h3>
-
-            <p className="mt-3 text-zinc-600">
-              Transform analytics into actionable decisions.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
